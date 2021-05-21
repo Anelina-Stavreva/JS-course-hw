@@ -95,6 +95,7 @@ if(!isBatteryCharged){
 }
 
 //System program status & message
+
 var robotSystemProgramDigit = 10;
 
 while(robotSystemProgramDigit >= 1){
