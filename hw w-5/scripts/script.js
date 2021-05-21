@@ -1,7 +1,9 @@
+const MAX_NUMBER_OF_STROKES = 4;
+
 //Robot move command
 var isEnteredObjectCorrect = false;
 
-while(isEnteredObjectCorrect == false){
+while(!isEnteredObjectCorrect){
     var objectInFrontOfRobot = prompt("Въведи коректна стойност! Какво има пред теб? Стена, стол или нищо?");
 
     var isEnteredObjectCorrect = (objectInFrontOfRobot == "стена")   ||
@@ -9,24 +11,21 @@ while(isEnteredObjectCorrect == false){
                                  (objectInFrontOfRobot == "нищо");
 }
 
+var robotMoveCommand;
+
 if(objectInFrontOfRobot == "стена"){
-    var robotMoveCommand = "Go Sideway";
+    robotMoveCommand = "Go Sideway";
 }
 
 if(objectInFrontOfRobot == "стол"){
-    var robotMoveCommand = "Jump";
+    robotMoveCommand = "Jump";
 }
 
 if(objectInFrontOfRobot == "нищо"){
-    var robotMoveCommand = "Forward";
+    robotMoveCommand = "Forward";
 }
 
-//This variable defines if a message "I'm a robottt" will be displayed
-var robotSystemProgramDigit = 10;
-
 var numberOfStrokes = 0;
-const MAX_NUMBER_OF_STROKES = 4;
-
 var isBatteryCharged = true;
 var shouldRobotContinueLookForMouse = true;
 
@@ -36,16 +35,14 @@ while (isBatteryCharged && shouldRobotContinueLookForMouse){
     //is there mouse in front of robot
     var isThereMouseInFrontOfRobot = false;
 
-    while(isThereMouseInFrontOfRobot == false){
+    while(!isThereMouseInFrontOfRobot){
+
         var numberOfPixelsInSpace = prompt("Въведи колко пиксела има в пространството, за да проверим дали има мишка пред теб?");
         isThereMouseInFrontOfRobot = (numberOfPixelsInSpace % 2 == 0);
 
-        if (isThereMouseInFrontOfRobot){
-            alert("Мишката е точно пред теб. Приготви се за удар!");
-        }
-        else{
-            alert("Не е намерена мишка, опитай отново");
-        }
+        var messageIfMouseDetected = (isThereMouseInFrontOfRobot)   ? "Мишката е точно пред теб. Приготви се за удар!" 
+                                                                    : "Не е намерена мишка, опитай отново";
+        alert(messageIfMouseDetected);
     }
     
 
@@ -54,7 +51,7 @@ while (isBatteryCharged && shouldRobotContinueLookForMouse){
         
         var isEnteredImpactForceCorrect = false;
 
-        while(isEnteredImpactForceCorrect == false){
+        while(!isEnteredImpactForceCorrect){
             var impactForceOfRobot = prompt("Въведете сила на удара на робота (от 1 до 10)");
             isEnteredImpactForceCorrect = (impactForceOfRobot >= 1) && (impactForceOfRobot <= 10);
         }
@@ -66,12 +63,6 @@ while (isBatteryCharged && shouldRobotContinueLookForMouse){
         
         if (isMouseHit){
             alert(`Мишката е поразена! Брой оставащи удари ${(4 - numberOfStrokes)}`);
-
-            if((robotSystemProgramDigit % 2) == 0){
-                alert(`I'm a Robotttt! System program status is ${robotSystemProgramDigit}`);
-            }
-
-            robotSystemProgramDigit -= 1;
         }
         else{
             alert(`Току-що счупи всички мебели! Брой оставащи удари ${(4 - numberOfStrokes)}`)
@@ -100,5 +91,17 @@ if(!isBatteryCharged){
 
     if(firstDigitEntryForElectricity < secondDigitEntryForElectricity){
         alert("Няма ток, батериите не са заредени");
+    }
+}
+
+//System program status & message
+var robotSystemProgramDigit = 10;
+
+while(robotSystemProgramDigit >= 1){
+
+    robotSystemProgramDigit -= 1;
+
+    if((robotSystemProgramDigit % 2) == 0){
+        alert(`I'm a Robotttt! System program status is ${robotSystemProgramDigit}`);
     }
 }
