@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework w-10</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="scripts/managers/output.manager.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <table id="calculator-wrapper">
+            <tr>
+                <td id="output-panel" colspan="5"></td>
+            </tr>
+            <tr>
+                <td id="number7" class="type-number">7</td>
+                <td id="number8" class="type-number">8</td>
+                <td id="number9" class="type-number">9</td>
+                <td id="action--delete-all" class="type-delete">C</td>
+                <td id="action--delete-last" class="type-delete">del</td>
+            </tr>
+            <tr>
+                <td id="number4" class="type-number">4</td>
+                <td id="number5" class="type-number">5</td>
+                <td id="number6" class="type-number">6</td>
+                <td id="action--subtract" class="type-operation">-</td>
+                <td id="action--divide" class="type-operation">/</td>
+            </tr>
+            <tr>
+                <td id="number1" class="type-number">1</td>
+                <td id="number2" class="type-number">2</td>
+                <td id="number3" class="type-number">3</td>
+                <td id="action--add" class="type-operation">+</td>
+                <td id="action--miltiply" class="type-operation">*</td>
+            </tr>
+            <tr>
+                <td id="action--equal" class="type-operation" colspan="5">=</td>
+            </tr>
+
+        </table>
+        <div id="operations-panel"></div>
+    </div>
+
+    <script src="scripts/dom.components.js"></script>
+    <script src="scripts/controllers/application.controller.js"></script>
+</body>
+</html>
